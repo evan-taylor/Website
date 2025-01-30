@@ -12,12 +12,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Smooth Gradient Background Animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient-shift 12s infinite ease-in-out;
+}
+
+/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white min-h-screen text-gray-900;
+  @apply min-h-screen text-gray-900;
 }
 
 /* Fade-in animations */

@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Navbar from "../components/Navbar.svelte"; // Your navigation bar
-  import Footer from "../components/Footer.svelte"; // Your footer
+  import Navbar from "../components/Navbar.svelte";
+  import Footer from "../components/Footer.svelte";
   import "../styles/global.css";
 
   import AOS from "aos";
@@ -14,9 +14,9 @@
     theme = localStorage.getItem("theme") || "light";
 
     AOS.init({
-      duration: 800, // Animation duration
-      easing: "ease-in-out", // Smooth easing
-      once: true, // Only animate once per scroll
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
     });
   });
 
@@ -26,21 +26,16 @@
   }
 </script>
 
-<!-- Global Layout Wrapper -->
-<div class="{theme}">
+<!-- Full-Site Gradient Background -->
+<div class="relative min-h-screen">
+  <div class="absolute inset-0 -z-10 animate-gradient bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700"></div>
+
+  <!-- Page Content -->
   <Navbar on:toggleTheme={toggleTheme} />
   
-  <main class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
-    <slot /> <!-- Page Content gets inserted here -->
+  <main class="relative min-h-screen text-white">
+    <slot /> <!-- Dynamic Page Content -->
   </main>
-  
+
   <Footer />
 </div>
-
-<style>
-  /* Global Styles */
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-</style>
