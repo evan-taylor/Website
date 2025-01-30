@@ -2,8 +2,10 @@
   import { onMount } from "svelte";
   import Navbar from "../components/Navbar.svelte"; // Your navigation bar
   import Footer from "../components/Footer.svelte"; // Your footer
+  import "../styles/global.css";
 
-  let theme = "light"; // Default theme
+
+  let theme = "dark"; // Default theme
 
   // Persist theme selection
   onMount(() => {
