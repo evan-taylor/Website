@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 // Import all pages
-import HomePage from './pages/HomePage.jsx';
-import ProjectsPage from './pages/ProjectsPage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
+import HomePage from '../pages/HomePage.jsx';
+import ProjectsPage from '../pages/ProjectsPage.jsx';
+import AboutPage from '../pages/AboutPage.jsx';
+import ContactPage from '../pages/ContactPage.jsx';
 
 // Custom hook for intersection observer (needed by all pages)
 export const useIntersectionObserver = () => {
