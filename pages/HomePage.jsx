@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
+import { useIntersectionObserver } from '../App.jsx';
 
 const HomePage = () => {
   const isVisible = useIntersectionObserver();

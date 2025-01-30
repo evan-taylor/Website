@@ -1,5 +1,6 @@
 import React from 'react';
 import { Terminal, Code } from 'lucide-react';
+import { useIntersectionObserver } from '../App.jsx';
 
 const ProjectsPage = () => {
   const isVisible = useIntersectionObserver();

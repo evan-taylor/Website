@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, MapPin, Github, Linkedin, Building2 } from 'lucide-react';
+import { useIntersectionObserver } from '../App.jsx';
 
 const ContactPage = () => {
   const isVisible = useIntersectionObserver();
