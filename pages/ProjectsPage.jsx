@@ -1,6 +1,6 @@
 import React from 'react';
 import { Terminal, Code } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks.js'; // Fixed import path
+import { useIntersectionObserver } from '../src/hooks.js'; // Fixed import path
 
 const ProjectsPage = () => {
   const isVisible = useIntersectionObserver();
