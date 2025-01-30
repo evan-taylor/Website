@@ -7,5 +7,8 @@ export default defineConfig({
     root: '.',
     build: {
         outDir: 'dist',
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
     }
 })
