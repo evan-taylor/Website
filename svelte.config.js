@@ -1,11 +1,15 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-cloudflare';
 import preprocess from 'svelte-preprocess';
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
     kit: {
         adapter: adapter(),
+        files: {
+            assets: 'public' // Ensure static assets go into `public/`
+        }
     },
-    preprocess: preprocess({
-        postcss: true,
-    }),
+    preprocess: preprocess()
 };
+
+export default config;
