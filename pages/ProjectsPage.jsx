@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion"; // Import Framer Motion
 import { Terminal, Code, Globe, Database, BarChart, Layers } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks.js';
+import { useIntersectionObserver } from '../src/hooks.js';
 
 const ProjectsPage = () => {
   const isVisible = useIntersectionObserver();
