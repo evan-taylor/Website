@@ -1,6 +1,6 @@
 import React from 'react';
 import { GraduationCap, Heart, Briefcase } from 'lucide-react';
-import { useIntersectionObserver } from '../App.jsx';
+import { useIntersectionObserver } from '../src/App.jsx';
 
 const AboutPage = () => {
   const isVisible = useIntersectionObserver();
