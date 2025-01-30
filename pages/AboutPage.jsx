@@ -1,17 +1,52 @@
 import React from 'react';
+import { motion } from "framer-motion"; // Import Framer Motion
 import { GraduationCap, Heart, Briefcase } from 'lucide-react';
 import { useIntersectionObserver } from '../src/hooks.js'; // Fixed import path
 
 const AboutPage = () => {
   const isVisible = useIntersectionObserver();
-  const fadeInClass = "opacity-100 translate-y-0 transition-all duration-1000";
-  const fadeOutClass = "opacity-0 translate-y-8 transition-all duration-1000";
+
+  // Animation Variants
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
+  const timelineItems = [
+    {
+      title: "Hockinson High School",
+      year: "2024",
+      icon: GraduationCap,
+      color: "blue",
+      description: "Graduated from Hockinson High School in Hockinson, WA. I was captain of the boys varsity swim team, a varsity golf player, and involved in Future Business Leaders of America."
+    },
+    {
+      title: "Clark College",
+      year: "2024",
+      icon: Heart,
+      color: "purple",
+      description: "Completed my studies at Clark College with a focus on Computer Science, building a foundation in Python, C, HTML/CSS, and JavaScript. All credits transferred to Cal Poly SLO."
+    },
+    {
+      title: "California Polytechnic State University",
+      year: "Expected 2028",
+      icon: Briefcase,
+      color: "green",
+      description: "Currently pursuing my Bachelor's in Computer Science with a concentration in Privacy and Security. I'm also working towards a minor in Entrepreneurship."
+    }
+  ];
 
   return (
     <div className="pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-6">
         {/* Bio Section */}
-        <section id="bio" className={`mb-16 ${isVisible["bio"] ? fadeInClass : fadeOutClass}`}>
+        <motion.section 
+          id="bio"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+          className="mb-16"
+        >
           <h1 className="text-4xl font-bold text-gray-800 mb-6">About Me</h1>
           <div className="bg-white rounded-lg shadow-sm p-8 border border-gray-100">
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -25,21 +60,29 @@ const AboutPage = () => {
               We provide high-quality health and safety training, including CPR courses and Lifeguard certification.
             </p>
           </div>
-        </section>
+        </motion.section>
 
         {/* Timeline Section */}
-        <section id="timeline" className={`space-y-8 ${isVisible["timeline"] ? fadeInClass : fadeOutClass}`}>
+        <motion.section 
+          id="timeline"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+          className="space-y-8"
+        >
           <h2 className="text-3xl font-bold text-gray-800 mb-8">My Journey</h2>
 
-          {[
-            { title: "Hockinson High School", year: "2024", icon: GraduationCap, color: "blue", 
-              description: "Graduated from Hockinson High School in Hockinson, WA. I was captain of the boys varsity swim team, a varsity golf player, and involved in Future Business Leaders of America." },
-            { title: "Clark College", year: "2024", icon: Heart, color: "purple", 
-              description: "Completed my studies at Clark College with a focus on Computer Science, building a foundation in Python, C, HTML/CSS, and JavaScript. All credits transferred to Cal Poly SLO." },
-            { title: "California Polytechnic State University", year: "Expected 2028", icon: Briefcase, color: "green", 
-              description: "Currently pursuing my Bachelor's in Computer Science with a concentration in Privacy and Security. I'm also working towards a minor in Entrepreneurship." }
-          ].map((item, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+          {timelineItems.map((item, index) => (
+            <motion.div 
+              key={index}
+              initial="hidden"
+              animate={isVisible.timeline ? "visible" : "hidden"}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } }
+              }}
+              className="bg-white rounded-lg shadow-sm p-6 border border-gray-100"
+            >
               <div className="flex items-start gap-4">
                 <div className={`bg-${item.color}-100 p-3 rounded-lg`}>
                   <item.icon className={`w-6 h-6 text-${item.color}-600`} />
@@ -52,9 +95,9 @@ const AboutPage = () => {
                   <p className="text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </section>
+        </motion.section>
       </div>
     </div>
   );
