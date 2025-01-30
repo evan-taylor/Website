@@ -22,7 +22,7 @@
 </script>
 
 <!-- Hero Section -->
-<header data-aos="fade-down" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+<header data-aos="fade-down" class="text-white py-20">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h1 class="text-5xl font-bold mb-4">Evan Taylor</h1>
     <p class="text-lg text-gray-200 max-w-2xl mx-auto">
