@@ -7,32 +7,8 @@ import ProjectsPage from '../pages/ProjectsPage.jsx';
 import AboutPage from '../pages/AboutPage.jsx';
 import ContactPage from '../pages/ContactPage.jsx';
 
-// Custom hook for intersection observer (needed by all pages)
-export const useIntersectionObserver = () => {
-  const [isVisible, setIsVisible] = useState({});
-  
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible(prev => ({
-            ...prev,
-            [entry.target.id]: entry.isIntersecting
-          }));
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('section').forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return isVisible;
-};
+// Import global styles (make sure this is in index.jsx too)
+import '../src/index.css';
 
 // Navigation Component
 const Navigation = ({ currentPage, setCurrentPage }) => {
@@ -50,7 +26,7 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <div className="text-xl font-bold text-gray-800">ET</div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
@@ -108,21 +84,25 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
 
+  // Reapply fade animations for smooth transitions
+  const fadeInClass = "opacity-100 translate-y-0 transition-all duration-1000";
+  const fadeOutClass = "opacity-0 translate-y-8 transition-all duration-1000";
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-gray-800">
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      
+
       {/* Page Content */}
-      <div className={`transition-opacity duration-300 ${currentPage === 'home' ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className={`${currentPage === 'home' ? fadeInClass : fadeOutClass}`}>
         <HomePage />
       </div>
-      <div className={`transition-opacity duration-300 ${currentPage === 'projects' ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className={`${currentPage === 'projects' ? fadeInClass : fadeOutClass}`}>
         <ProjectsPage />
       </div>
-      <div className={`transition-opacity duration-300 ${currentPage === 'about' ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className={`${currentPage === 'about' ? fadeInClass : fadeOutClass}`}>
         <AboutPage />
       </div>
-      <div className={`transition-opacity duration-300 ${currentPage === 'contact' ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className={`${currentPage === 'contact' ? fadeInClass : fadeOutClass}`}>
         <ContactPage />
       </div>
 
