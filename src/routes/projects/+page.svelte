@@ -6,14 +6,14 @@
   import { Code, Terminal, Database, Sparkles } from "lucide-svelte";
 
   const projects = [
-    {
-      id: "ml-classification",
-      title: "Machine Learning Classification",
-      description:
-        "Built predictive models using Random Forest and SVM for data analytics.",
-      tech: ["Python", "scikit-learn", "pandas"],
-      icon: Terminal
-    },
+    // {
+    //   id: "ml-classification",
+    //   title: "Machine Learning Classification",
+    //   description:
+    //     "Built predictive models using Random Forest and SVM for data analytics.",
+    //   tech: ["Python", "scikit-learn", "pandas"],
+    //   icon: Terminal
+    // },
     {
       id: "portfolio-website",
       title: "Personal Portfolio Website",
@@ -21,15 +21,16 @@
         "Designed and developed a sleek personal portfolio using modern web technologies.",
       tech: ["SvelteKit", "Tailwind CSS", "JavaScript"],
       icon: Code
-    },
-    {
-      id: "database-app",
-      title: "Scalable Database Application",
-      description:
-        "Developed a high-performance database-driven application using PostgreSQL and Node.js.",
-      tech: ["PostgreSQL", "Node.js", "Express"],
-      icon: Database
     }
+    // },
+    // {
+    //   id: "database-app",
+    //   title: "Scalable Database Application",
+    //   description:
+    //     "Developed a high-performance database-driven application using PostgreSQL and Node.js.",
+    //   tech: ["PostgreSQL", "Node.js", "Express"],
+    //   icon: Database
+    // }
   ];
 
   onMount(() => {
