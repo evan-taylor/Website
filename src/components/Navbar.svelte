@@ -35,9 +35,7 @@
   <!-- Mobile Menu (Animated) -->
   <div
     class="fixed inset-0 bg-[#23486A] text-white flex flex-col items-center justify-center space-y-6 text-lg 
-           transition-all duration-300 ease-in-out transform"
-    class:isOpen="opacity-100 translate-y-0"
-    class:!isOpen="opacity-0 -translate-y-10 pointer-events-none"
+               transition-all duration-300 ease-in-out transform {isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}"
   >
     <button class="absolute top-5 right-6 bg-[#23486A] p-2 rounded-full" on:click={toggleMenu}>
       <X class="w-10 h-10 text-white transition-transform duration-300 transform rotate-180" />
