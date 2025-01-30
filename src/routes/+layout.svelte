@@ -26,16 +26,31 @@
   }
 </script>
 
-<!-- Full-Site Gradient Background -->
-<div class="relative min-h-screen">
-  <div class="absolute inset-0 -z-10 animate-gradient bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700"></div>
+<!-- Full-Site Dynamic Gradient Background -->
+<div class="{theme} relative min-h-screen overflow-hidden">
+  <div class="absolute inset-0 -z-10 animate-gradient bg-gradient-to-br from-[#EFB036] via-[#3B6790] to-[#23486A]"></div>
 
-  <!-- Page Content -->
+  <!-- Navbar -->
   <Navbar on:toggleTheme={toggleTheme} />
   
+  <!-- Main Content -->
   <main class="relative min-h-screen text-white">
-    <slot /> <!-- Dynamic Page Content -->
+    <slot /> <!-- Page Content Gets Inserted Here -->
   </main>
 
+  <!-- Footer -->
   <Footer />
 </div>
+
+<style>
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientAnimation 20s ease infinite;
+  }
+</style>

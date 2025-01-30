@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 </script>
 
-<nav class="bg-transparent">
+<nav class="bg-transparent text-[#EFB036]">
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center space-x-6">
     <a href="/" class="text-white hover:text-gray-200 transition text-lg">Home</a>
     <a href="/about" class="text-white hover:text-gray-200 transition text-lg">About</a>

@@ -14,9 +14,9 @@
 
 /* Smooth Gradient Background Animation */
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; background-color: #EFB036; }
+  50% { background-position: 100% 50%; background-color: #3B6790; }
+  100% { background-position: 0% 50%; background-color: #23486A; }
 }
 
 .animate-gradient {
@@ -30,7 +30,16 @@ html {
 }
 
 body {
-  @apply min-h-screen text-gray-900;
+  @apply min-h-screen text-[#23486A]; /* Deep blue text */
+}
+
+a, button {
+  color: #EFB036; /* Orange accent */
+}
+
+button:hover {
+  background-color: #3B6790; /* Darker navy on hover */
+  color: white;
 }
 
 /* Fade-in animations */
