@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Menu, X } from "lucide-svelte"; // Hamburger & Close Icons
-
+  import { Menu, X } from "lucide-svelte"; // Icons for Menu
   let isOpen = false;
 
   function toggleMenu() {
@@ -9,7 +8,7 @@
   }
 </script>
 
-<nav class="bg-transparent text-[#EFB036] relative">
+<nav class="bg-transparent text-[#EFB036] relative z-50">
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
     <a href="/" class="text-white text-xl font-bold">Evan Taylor</a>
@@ -33,20 +32,17 @@
     </button>
   </div>
 
-  <!-- Mobile Menu (Sliding Dropdown) -->
+  <!-- Mobile Menu (Fixed Full-Screen) -->
   {#if isOpen}
-    <div class="md:hidden absolute top-full left-0 w-full bg-[#23486A] text-white shadow-md py-4 space-y-4 text-center transition-all">
-      <a href="/" class="block hover:text-gray-200 text-lg" on:click={toggleMenu}>Home</a>
-      <a href="/about" class="block hover:text-gray-200 text-lg" on:click={toggleMenu}>About</a>
-      <a href="/projects" class="block hover:text-gray-200 text-lg" on:click={toggleMenu}>Projects</a>
-      <a href="/resume" class="block hover:text-gray-200 text-lg" on:click={toggleMenu}>Resume</a>
-      <a href="/contact" class="block hover:text-gray-200 text-lg" on:click={toggleMenu}>Contact</a>
+    <div class="fixed inset-0 bg-[#23486A] text-white flex flex-col items-center justify-center space-y-6 text-lg transition-all">
+      <button class="absolute top-5 right-6" on:click={toggleMenu}>
+        <X class="w-10 h-10 text-white" />
+      </button>
+      <a href="/" class="hover:text-gray-200 transition" on:click={toggleMenu}>Home</a>
+      <a href="/about" class="hover:text-gray-200 transition" on:click={toggleMenu}>About</a>
+      <a href="/projects" class="hover:text-gray-200 transition" on:click={toggleMenu}>Projects</a>
+      <a href="/resume" class="hover:text-gray-200 transition" on:click={toggleMenu}>Resume</a>
+      <a href="/contact" class="hover:text-gray-200 transition" on:click={toggleMenu}>Contact</a>
     </div>
   {/if}
 </nav>
-
-<style>
-  nav {
-    transition: all 0.3s ease-in-out;
-  }
-</style>
