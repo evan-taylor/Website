@@ -15,7 +15,7 @@
     "tailwindcss": "^3.4.1",
     "framer-motion": "^11.0.0",
     "lucide-svelte": "^0.275.0",
-    "aos": "^2.3.4"  // Added AOS for animations
+    "aos": "^2.3.4"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^1.0.0",
