@@ -6,12 +6,12 @@
   <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-8" in:fade={{ duration: 600 }}>Resume</h1>
 
   <!-- Download Resume Button -->
-  <div class="text-center mb-8" in:fade={{ duration: 600 }}>
-    <a href=".../static/Evan Taylor - Resume.pdf"
-      class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
-      📄 View Resume (PDF)
-    </a>
-  </div>
+<div class="text-center mb-8" in:fade={{ duration: 600 }}>
+  <a href="/static/Evan Taylor - Resume.pdf" target="_blank"
+    class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
+    📄 View Resume (PDF)
+  </a>
+</div>
 
   <!-- Contact Information -->
   <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700" in:fade={{ duration: 600 }}>
