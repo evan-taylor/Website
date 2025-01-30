@@ -1,6 +1,18 @@
 <script>
+  import { onMount } from "svelte";
+  import AOS from "aos";
+  import "aos/dist/aos.css"; // Import AOS CSS
+
   import { GraduationCap, Briefcase, Heart } from "lucide-svelte";
   import { fade } from "svelte/transition";
+
+  onMount(() => {
+    AOS.init({
+      duration: 800, // Animation duration
+      once: true, // Animations happen only once
+      easing: "ease-in-out", // Smooth easing
+    });
+  });
 
   const timeline = [
     {
@@ -31,7 +43,8 @@
 </script>
 
 <main class="max-w-4xl mx-auto px-6 py-16 space-y-12">
-  <section in:fade={{ duration: 600 }}>
+  <!-- About Section -->
+  <section in:fade={{ duration: 600 }} data-aos="fade-up">
     <h1 class="text-4xl font-bold text-gray-800 dark:text-white">About Me</h1>
     <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
       Hi, I’m Evan! I’ve been passionate about computers and programming since middle school.
@@ -40,11 +53,15 @@
     </p>
   </section>
 
-  <section in:fade={{ duration: 600 }}>
+  <!-- Journey Timeline -->
+  <section in:fade={{ duration: 600 }} data-aos="fade-up">
     <h2 class="text-3xl font-bold text-gray-800 dark:text-white">My Journey</h2>
     <div class="space-y-8 mt-6">
       {#each timeline as item}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
+        <div 
+          class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700"
+          data-aos="fade-up"
+        >
           <div class="flex items-start gap-4">
             <div class={`bg-${item.color}-100 p-3 rounded-lg`}>
               <item.icon class={`w-6 h-6 text-${item.color}-600`} />

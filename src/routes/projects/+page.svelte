@@ -1,6 +1,9 @@
 <script>
+  import { onMount } from "svelte";
+  import AOS from "aos";
+  import "aos/dist/aos.css"; // Import AOS styles
+
   import { Code, Terminal, Database, Sparkles } from "lucide-svelte";
-  import { fade } from "svelte/transition";
 
   const projects = [
     {
@@ -28,15 +31,26 @@
       icon: Database
     }
   ];
+
+  onMount(() => {
+    AOS.init({
+      duration: 800, // Animation duration
+      once: true, // Animates only once per session
+      easing: "ease-in-out", // Smooth easing function
+    });
+  });
 </script>
 
 <main class="max-w-4xl mx-auto px-6 py-16">
-  <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-8">Projects</h1>
+  <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-8" data-aos="fade-up">Projects</h1>
 
   <div class="grid gap-8 md:grid-cols-2">
-    {#each projects as project}
-      <div in:fade={{ duration: 600 }}
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
+    {#each projects as project, index}
+      <div 
+        class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700"
+        data-aos="fade-up"
+        data-aos-delay="{index * 200}"
+      >
         <div class="flex items-center gap-3 mb-4">
           <project.icon class="w-8 h-8 text-blue-600" />
           <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
