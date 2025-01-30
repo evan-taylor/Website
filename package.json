@@ -15,9 +15,11 @@
     "framer-motion": "^11.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.3",
-    "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.35",
-    "svelte-preprocess": "^5.0.0"
+  "@sveltejs/adapter-auto": "^1.0.0",
+  "@tailwindcss/forms": "^0.5.3",
+  "autoprefixer": "^10.4.17",
+  "postcss": "^8.4.35",
+  "svelte-preprocess": "^5.0.0"
+
   }
 }
