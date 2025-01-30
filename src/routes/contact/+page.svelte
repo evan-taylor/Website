@@ -5,6 +5,12 @@
 
   import { Mail, MapPin, Github, Linkedin } from "lucide-svelte";
 
+  let formSubmitted = false;
+  let formError = false;
+  let name = "";
+  let email = "";
+  let message = "";
+
   onMount(() => {
     AOS.init({
       duration: 800, // Animation duration
@@ -13,7 +19,37 @@
     });
   });
 
-  let formSubmitted = false;
+  async function handleSubmit(event) {
+    event.preventDefault();
+    formSubmitted = false;
+    formError = false;
+
+    try {
+      const response = await fetch("https://formspree.io/f/meoekozv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message
+        })
+      });
+
+      if (response.ok) {
+        formSubmitted = true;
+        name = "";
+        email = "";
+        message = "";
+      } else {
+        throw new Error("Form submission failed.");
+      }
+    } catch (error) {
+      console.error(error);
+      formError = true;
+    }
+  }
 </script>
 
 <main class="max-w-4xl mx-auto px-6 py-16 text-center">
@@ -30,30 +66,33 @@
       <Mail /> Email Me
     </a>
 
-    <!-- Contact Form -->
-    <form 
-      action="https://formspree.io/f/meoekozv" 
-      method="POST"
+    <!-- Contact Form (Fixed JSON Submission) -->
+    <form
       class="mt-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4 max-w-lg mx-auto"
-      data-aos="fade-up" data-aos-delay="300"
-      on:submit={() => formSubmitted = true}
+      data-aos="fade-up"
+      data-aos-delay="300"
+      on:submit={handleSubmit}
     >
       {#if formSubmitted}
         <p class="text-green-600 dark:text-green-400 font-medium">Thanks! Your message has been sent.</p>
       {:else}
+        {#if formError}
+          <p class="text-red-600 dark:text-red-400 font-medium">Something went wrong. Please try again.</p>
+        {/if}
+
         <label class="block text-left text-gray-800 dark:text-gray-300">
           Name:
-          <input type="text" name="name" required class="w-full mt-1 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:text-white" />
+          <input type="text" bind:value={name} required class="w-full mt-1 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:text-white" />
         </label>
 
         <label class="block text-left text-gray-800 dark:text-gray-300">
           Email:
-          <input type="email" name="email" required class="w-full mt-1 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:text-white" />
+          <input type="email" bind:value={email} required class="w-full mt-1 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:text-white" />
         </label>
 
         <label class="block text-left text-gray-800 dark:text-gray-300">
           Message:
-          <textarea name="message" required class="w-full mt-1 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:text-white"></textarea>
+          <textarea bind:value={message} required class="w-full mt-1 px-4 py-2 border rounded-lg dark:bg-gray-700 dark:text-white"></textarea>
         </label>
 
         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition">

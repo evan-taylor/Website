@@ -7,6 +7,7 @@
     <a href="/" class="text-white hover:text-gray-200 transition text-lg">Home</a>
     <a href="/about" class="text-white hover:text-gray-200 transition text-lg">About</a>
     <a href="/projects" class="text-white hover:text-gray-200 transition text-lg">Projects</a>
+    <a href="/resume" class="text-white hover:text-gray-200 transition">Resume</a>
     <a href="/contact" class="text-white hover:text-gray-200 transition text-lg">Contact</a>
   </div>
 </nav>
