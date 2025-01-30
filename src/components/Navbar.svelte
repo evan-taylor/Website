@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Menu, X } from "lucide-svelte"; // Icons for Menu
+  import { Menu, X } from "lucide-svelte"; // Import icons
   let isOpen = false;
 
   function toggleMenu() {
@@ -22,27 +22,30 @@
       <a href="/contact" class="text-white hover:text-gray-200 transition text-lg">Contact</a>
     </div>
 
-    <!-- Mobile Hamburger Icon -->
+    <!-- Mobile Menu Button -->
     <button class="md:hidden text-white" on:click={toggleMenu}>
       {#if isOpen}
-        <X class="w-8 h-8" />
+        <X class="w-8 h-8 transition-transform duration-300 transform rotate-180" />
       {:else}
-        <Menu class="w-8 h-8" />
+        <Menu class="w-8 h-8 transition-transform duration-300 transform rotate-0" />
       {/if}
     </button>
   </div>
 
-  <!-- Mobile Menu (Fixed Full-Screen) -->
-  {#if isOpen}
-    <div class="fixed inset-0 bg-[#23486A] text-white flex flex-col items-center justify-center space-y-6 text-lg transition-all">
-      <button class="absolute top-5 right-6" on:click={toggleMenu}>
-        <X class="w-10 h-10 text-white" />
-      </button>
-      <a href="/" class="hover:text-gray-200 transition" on:click={toggleMenu}>Home</a>
-      <a href="/about" class="hover:text-gray-200 transition" on:click={toggleMenu}>About</a>
-      <a href="/projects" class="hover:text-gray-200 transition" on:click={toggleMenu}>Projects</a>
-      <a href="/resume" class="hover:text-gray-200 transition" on:click={toggleMenu}>Resume</a>
-      <a href="/contact" class="hover:text-gray-200 transition" on:click={toggleMenu}>Contact</a>
-    </div>
-  {/if}
+  <!-- Mobile Menu (Animated) -->
+  <div
+    class="fixed inset-0 bg-[#23486A] text-white flex flex-col items-center justify-center space-y-6 text-lg 
+           transition-all duration-300 ease-in-out transform"
+    class:isOpen="opacity-100 translate-y-0"
+    class:!isOpen="opacity-0 -translate-y-10 pointer-events-none"
+  >
+    <button class="absolute top-5 right-6 bg-[#23486A] p-2 rounded-full" on:click={toggleMenu}>
+      <X class="w-10 h-10 text-white transition-transform duration-300 transform rotate-180" />
+    </button>
+    <a href="/" class="hover:text-gray-200 transition" on:click={toggleMenu}>Home</a>
+    <a href="/about" class="hover:text-gray-200 transition" on:click={toggleMenu}>About</a>
+    <a href="/projects" class="hover:text-gray-200 transition" on:click={toggleMenu}>Projects</a>
+    <a href="/resume" class="hover:text-gray-200 transition" on:click={toggleMenu}>Resume</a>
+    <a href="/contact" class="hover:text-gray-200 transition" on:click={toggleMenu}>Contact</a>
+  </div>
 </nav>
