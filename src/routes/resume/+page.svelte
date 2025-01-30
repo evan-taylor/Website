@@ -5,6 +5,14 @@
 <main class="max-w-4xl mx-auto px-6 py-16">
   <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-8" in:fade={{ duration: 600 }}>Resume</h1>
 
+  <!-- Download Resume Button -->
+  <div class="text-center mb-8" in:fade={{ duration: 600 }}>
+    <a href="/static/Evan Taylor - Resume.pdf" download
+      class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
+      📄 Download Resume (PDF)
+    </a>
+  </div>
+
   <!-- Contact Information -->
   <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700" in:fade={{ duration: 600 }}>
     <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Evan Taylor</h2>
