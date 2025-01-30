@@ -26,6 +26,10 @@
   }
 </script>
 
+<svelte:head>
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+</svelte:head>
+
 <!-- Full-Site Dynamic Gradient Background -->
 <div class="{theme} relative min-h-screen overflow-hidden">
   <div class="absolute inset-0 -z-10 animate-gradient bg-gradient-to-br from-[#EFB036] via-[#3B6790] to-[#23486A]"></div>
