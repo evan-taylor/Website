@@ -1,7 +1,6 @@
 <script>
-  import { fade } from "svelte/transition";
   import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles } from "lucide-svelte";
-
+  
   let skills = ["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"];
 
   const projects = [
@@ -23,7 +22,7 @@
 </script>
 
 <!-- Hero Section -->
-<header in:fade={{ duration: 600 }} class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+<header data-aos="fade-down" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h1 class="text-5xl font-bold mb-4">Evan Taylor</h1>
     <p class="text-lg text-gray-200 max-w-2xl mx-auto">
@@ -56,7 +55,7 @@
 <main class="max-w-4xl mx-auto px-6 py-16 space-y-16">
 
   <!-- About Me Section -->
-  <section in:fade={{ duration: 600 }}>
+  <section data-aos="fade-up" data-aos-delay="100">
     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">About Me</h2>
     <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
       I'm a Computer Science student at **Cal Poly, San Luis Obispo**, with a strong background in **software development** and **UI/UX design**.
@@ -65,24 +64,25 @@
   </section>
 
   <!-- Skills Section -->
-  <section in:fade={{ duration: 600 }}>
+  <section data-aos="zoom-in" data-aos-delay="200">
     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Skills</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-            {#each skills as skill}
-            <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow">
-                <Sparkles size={20} class="text-blue-600" />
-                <span class="text-gray-800 dark:text-white">{skill}</span>
-            </div>
-            {/each}
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+      {#each skills as skill}
+        <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow">
+          <Sparkles size={20} class="text-blue-600" />
+          <span class="text-gray-800 dark:text-white">{skill}</span>
         </div>
+      {/each}
+    </div>
   </section>
 
   <!-- Projects Section -->
-  <section in:fade={{ duration: 600 }}>
+  <section data-aos="fade-up" data-aos-delay="300">
     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Projects</h2>
     <div class="grid gap-8 md:grid-cols-2 mt-6">
       {#each projects as project}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div data-aos="flip-left" data-aos-delay="400"
+             class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
           <div class="flex items-center gap-3 mb-4">
             <project.icon class="w-8 h-8 text-blue-600" />
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
@@ -99,7 +99,7 @@
   </section>
 
   <!-- Contact CTA -->
-  <section in:fade={{ duration: 600 }} class="text-center">
+  <section data-aos="fade-up" data-aos-delay="500" class="text-center">
     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Let's Connect</h2>
     <p class="text-gray-600 dark:text-gray-300 mt-4">
       Interested in working together? Feel free to reach out!

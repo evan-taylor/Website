@@ -4,12 +4,20 @@
   import Footer from "../components/Footer.svelte"; // Your footer
   import "../styles/global.css";
 
+  import AOS from "aos";
+  import "aos/dist/aos.css";
 
   let theme = "dark"; // Default theme
 
-  // Persist theme selection
+  // Persist theme selection & Initialize AOS
   onMount(() => {
     theme = localStorage.getItem("theme") || "light";
+
+    AOS.init({
+      duration: 800, // Animation duration
+      easing: "ease-in-out", // Smooth easing
+      once: true, // Only animate once per scroll
+    });
   });
 
   function toggleTheme() {

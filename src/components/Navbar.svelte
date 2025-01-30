@@ -17,7 +17,7 @@
   }
 </script>
 
-<nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 shadow-md">
+<nav class="left-0 right-0 bg-white/80 backdrop-blur-md z-50 shadow-md">
   <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
     <a href="/" class="text-xl font-bold text-gray-800">Evan Taylor</a>
 
