@@ -58,8 +58,8 @@
   <section data-aos="fade-up" data-aos-delay="100">
     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">About Me</h2>
     <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
-      I'm a Computer Science student at **Cal Poly, San Luis Obispo**, with a strong background in **software development** and **UI/UX design**.
-      I love exploring **machine learning, web development, and security.** Currently, I'm building projects using **SvelteKit, React, and Python.**
+      I'm a Computer Science student at <b>Cal Poly, San Luis Obispo</b>, with a strong background in <b>software development</b> and <b>UI/UX design</b>.
+      I love exploring <b>machine learning, web development, and security</b>. Currently, I'm building projects using <b>SvelteKit, React, and Java</b>.
     </p>
   </section>
 
