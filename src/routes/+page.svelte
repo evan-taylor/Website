@@ -65,14 +65,20 @@
   <!-- Skills Section -->
   <section in:fade={{ duration: 600 }}>
     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Skills</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-      {["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"].map(skill => (
-        <div key={skill} class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow">
-          <Sparkles size={20} class="text-blue-600" />
-          <span class="text-gray-800 dark:text-white">{skill}</span>
-        </div>
-      ))}
+<script>
+  import { Sparkles } from "lucide-svelte"; // Ensure you have lucide-svelte installed
+
+  let skills = ["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"];
+</script>
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+  {#each skills as skill}
+    <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow">
+      <Sparkles size={20} class="text-blue-600" />
+      <span class="text-gray-800 dark:text-white">{skill}</span>
     </div>
+  {/each}
+</div>
   </section>
 
   <!-- Projects Section -->
