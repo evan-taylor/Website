@@ -4,13 +4,13 @@
   let skills = ["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"];
 
   const projects = [
-    {
-      id: "ml-classification",
-      title: "Machine Learning Classification",
-      description: "Built predictive models using Random Forest and SVM for data analytics.",
-      tech: ["Python", "scikit-learn", "pandas"],
-      icon: Terminal
-    },
+    // {
+    //   id: "ml-classification",
+    //   title: "Machine Learning Classification",
+    //   description: "Built predictive models using Random Forest and SVM for data analytics.",
+    //   tech: ["Python", "scikit-learn", "pandas"],
+    //   icon: Terminal
+    // },
     {
       id: "portfolio-website",
       title: "Personal Portfolio Website",
@@ -24,7 +24,7 @@
 <!-- Hero Section -->
 <header data-aos="fade-down" class="text-white py-20">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h1 class="text-5xl font-bold mb-4">Evan Taylor</h1>
+    <h1 class="text-6xl font-bold mb-4">Hi! I'm Evan 👋</h1>
     <p class="text-lg text-gray-200 max-w-2xl mx-auto">
       Passionate about software development, UI/UX design, and building meaningful digital experiences.
     </p>

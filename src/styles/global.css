@@ -33,7 +33,7 @@ body {
   @apply min-h-screen text-[#23486A]; /* Deep blue text */
 }
 
-a, button {
+button {
   color: #EFB036; /* Orange accent */
 }
 
