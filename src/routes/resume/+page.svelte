@@ -7,13 +7,9 @@
 
   <!-- Download Resume Button -->
 <div class="text-center mb-8" in:fade={{ duration: 600 }}>
-  <a href="./Evan-Taylor-Resume.pdf" target="_blank" rel="noopener noreferrer"
+  <a href="https://drive.google.com/uc?export=download&id=1NaHmLrhenwQ2aXvu_hex20nGdq6t1Ib0" target="_blank" rel="noopener noreferrer"
     class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
-    📄 View Resume (PDF)
-  </a>
-    <a href="/static/Evan-Taylor-Resume.pdf" target="_blank" rel="noopener noreferrer"
-    class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
-    📄 View Resume (PDF)
+    📄 Download Resume (PDF)
   </a>
 </div>
 
