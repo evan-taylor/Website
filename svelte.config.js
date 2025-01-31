@@ -5,9 +5,6 @@ import preprocess from 'svelte-preprocess';
 const config = {
     kit: {
         adapter: adapter(),
-        files: {
-            assets: 'public' // Ensure static assets go into `public/`
-        }
     },
     preprocess: preprocess()
 };
