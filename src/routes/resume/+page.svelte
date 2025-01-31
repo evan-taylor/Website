@@ -7,9 +7,10 @@
 
   <!-- Download Resume Button -->
 <div class="text-center mb-8" in:fade={{ duration: 600 }}>
-<a href="/Evan-Taylor-Resume.pdf" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
+  <a href="/Evan-Taylor-Resume.pdf" target="_blank" rel="noopener noreferrer"
+    class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition inline-block">
     📄 View Resume (PDF)
-</a>
+  </a>
 </div>
 
   <!-- Contact Information -->
