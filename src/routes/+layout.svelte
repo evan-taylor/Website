@@ -28,6 +28,7 @@
 
 <svelte:head>
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </svelte:head>
 
 <!-- Full-Site Dynamic Gradient Background -->
