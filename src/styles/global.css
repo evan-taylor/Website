@@ -13,18 +13,17 @@
 }
 
 /* Smooth Gradient Background Animation */
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; background-color: #FF0080; } /* Neon pink */
-  20% { background-position: 25% 50%; background-color: #FFB900; } /* Bright yellow-orange */
-  40% { background-position: 50% 50%; background-color: #00F5D4; } /* Electric aqua */
-  60% { background-position: 75% 50%; background-color: #3B28CC; } /* Deep royal blue */
-  80% { background-position: 100% 50%; background-color: #9D00FF; } /* Vivid purple */
-  100% { background-position: 0% 50%; background-color: #FF0080; } /* Back to neon pink */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Apply a large gradient with softer colors */
 .animate-gradient {
+  background: linear-gradient(45deg, #FAD0C4, #FFD1B3, #B5EAD7, #C7CEEA, #F3C1FF);
   background-size: 300% 300%;
-  animation: gradient-shift 10s infinite ease-in-out;
+  animation: gradientAnimation 30s ease-in-out infinite;
 }
 
 /* Smooth Scrolling */
