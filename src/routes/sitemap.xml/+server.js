@@ -4,7 +4,7 @@ export async function GET({ request }) {
   const pages = ['', 'about', 'projects', 'contact', 'resume'];
 
   // Extract host, fallback if null (prerendering case)
-  let host = request.headers.get('host') || 'yourdomain.com'; // Replace with your actual domain
+  let host = request.headers.get('host') || 'evan-taylor.com'; // Replace with your actual domain
   let protocol = host.startsWith('localhost') ? 'http' : 'https';
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
