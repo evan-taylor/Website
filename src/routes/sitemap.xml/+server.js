@@ -1,8 +1,7 @@
+// src/routes/sitemap.xml/+server.js
 export const prerender = true;
 
-export async function GET({ url }) {
-  const base = url.origin; // Dynamically get the base URL from the request
-
+export async function GET({ request }) {
   const pages = [
     '', // Home page
     'about',
@@ -11,20 +10,24 @@ export async function GET({ url }) {
     'resume'
   ];
 
+  // Extract the host from the request headers
+  const host = request.headers.get('host');
+  const protocol = host.startsWith('localhost') ? 'http' : 'https';
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${pages
       .map((page) => {
         return `
-      <url>
-        <loc>${base}/${page}</loc>
+    <url>
+        <loc>${protocol}://${host}/${page}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
         <priority>${page === '' ? '1.0' : '0.8'}</priority>
-      </url>
+    </url>
     `;
       })
       .join('')}
-  </urlset>`;
+</urlset>`;
 
   return new Response(sitemap, {
     headers: {
