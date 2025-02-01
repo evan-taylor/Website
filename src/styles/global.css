@@ -21,7 +21,7 @@
 
 /* Apply a large, deeper gradient */
 .animate-gradient {
-  background: linear-gradient(45deg, #533E85, #3B3B98, #2C2E52, #1F2A44, #121C3B);
+  background: linear-gradient(45deg, #674EA7, #3B3B98, #334E68, #1F497D, #162447);
   background-size: 300% 300%;
   animation: gradientAnimation 30s ease-in-out infinite;
 }
