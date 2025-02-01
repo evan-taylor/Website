@@ -19,9 +19,9 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Apply a large gradient with softer colors */
+/* Apply a large, deeper gradient */
 .animate-gradient {
-  background: linear-gradient(45deg, #FAD0C4, #FFD1B3, #B5EAD7, #C7CEEA, #F3C1FF);
+  background: linear-gradient(45deg, #533E85, #3B3B98, #2C2E52, #1F2A44, #121C3B);
   background-size: 300% 300%;
   animation: gradientAnimation 30s ease-in-out infinite;
 }
