@@ -14,9 +14,11 @@
 
 /* Smooth Gradient Background Animation */
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; background-color: #EFB036; }
-  50% { background-position: 100% 50%; background-color: #3B6790; }
-  100% { background-position: 0% 50%; background-color: #23486A; }
+  0% { background-position: 0% 50%; background-color: #FF6B6B; } /* Warm coral */
+  25% { background-position: 50% 50%; background-color: #FFD166; } /* Soft yellow */
+  50% { background-position: 100% 50%; background-color: #06D6A0; } /* Teal green */
+  75% { background-position: 50% 50%; background-color: #118AB2; } /* Deep blue */
+  100% { background-position: 0% 50%; background-color: #EF476F; } /* Pinkish red */
 }
 
 .animate-gradient {
