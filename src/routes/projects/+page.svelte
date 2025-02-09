@@ -3,14 +3,14 @@
   import AOS from "aos";
   import "aos/dist/aos.css"; // Import AOS styles
 
-  import { Code, Terminal, Database, Sparkles } from "lucide-svelte";
+  import { Code, Activity, Users } from "lucide-svelte";
 
   const projects = [
     {
       id: "swimtrackr",
       title: "SwimTrackr",
       description:
-        "Developed a user-friendly platform for tracking swimming progress, catering to both parents and facilities.",
+        "Developing a user-friendly platform for tracking swimming progress, catering to both parents and facilities.",
       tech: ["React", "Tailwind CSS", "TypeScript", "Supabase"],
       icon: Activity,
       link: "https://www.swimtrackr.app/"
@@ -19,8 +19,8 @@
       id: "auxos",
       title: "Auxos",
       description:
-        "Created an accountability platform that helps users achieve personal growth through goal tracking and trusted circles.",
-      tech: ["React", "Node.js", "Express", "Supabase"],
+        "Creating an accountability platform that helps users achieve personal growth through goal tracking and trusted circles.",
+      tech: ["Swift", "SwiftUI", "Figma", "Supabase"],
       icon: Users,
       link: "https://www.auxos.app/"
     },
@@ -53,11 +53,13 @@
       <div 
         class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700"
         data-aos="fade-up"
-        data-aos-delay="{index * 200}"
+        data-aos-delay={index * 200}
       >
         <div class="flex items-center gap-3 mb-4">
           <project.icon class="w-8 h-8 text-blue-600" />
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+            <a href={project.link} target="_blank" class="hover:underline">{project.title}</a>
+          </h3>
         </div>
         <p class="text-gray-600 dark:text-gray-300">{project.description}</p>
         <div class="flex flex-wrap gap-2 mt-4">
