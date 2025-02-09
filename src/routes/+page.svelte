@@ -1,16 +1,25 @@
 <script>
-  import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles } from "lucide-svelte";
+  import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles, Activity, Users } from "lucide-svelte";
   
   let skills = ["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"];
 
   const projects = [
-    // {
-    //   id: "ml-classification",
-    //   title: "Machine Learning Classification",
-    //   description: "Built predictive models using Random Forest and SVM for data analytics.",
-    //   tech: ["Python", "scikit-learn", "pandas"],
-    //   icon: Terminal
-    // },
+    {
+      id: "swimtrackr",
+      title: "SwimTrackr",
+      description: "Developing a user-friendly platform for tracking swimming progress, catering to both parents and facilities.",
+      tech: ["React", "Tailwind CSS", "TypeScript", "Supabase"],
+      icon: Activity,
+      link: "https://www.swimtrackr.app/"
+    },
+    {
+      id: "auxos",
+      title: "Auxos",
+      description: "Creating an accountability platform that helps users achieve personal growth through goal tracking and trusted circles.",
+      tech: ["React", "Node.js", "Express", "Supabase"],
+      icon: Users,
+      link: "https://www.auxos.app/"
+    },
     {
       id: "portfolio-website",
       title: "Personal Portfolio Website",

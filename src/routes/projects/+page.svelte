@@ -6,32 +6,35 @@
   import { Code, Terminal, Database, Sparkles } from "lucide-svelte";
 
   const projects = [
-    // {
-    //   id: "ml-classification",
-    //   title: "Machine Learning Classification",
-    //   description:
-    //     "Built predictive models using Random Forest and SVM for data analytics.",
-    //   tech: ["Python", "scikit-learn", "pandas"],
-    //   icon: Terminal
-    // },
+    {
+      id: "swimtrackr",
+      title: "SwimTrackr",
+      description:
+        "Developed a user-friendly platform for tracking swimming progress, catering to both parents and facilities.",
+      tech: ["React", "Tailwind CSS", "TypeScript", "Supabase"],
+      icon: Activity,
+      link: "https://www.swimtrackr.app/"
+    },
+    {
+      id: "auxos",
+      title: "Auxos",
+      description:
+        "Created an accountability platform that helps users achieve personal growth through goal tracking and trusted circles.",
+      tech: ["React", "Node.js", "Express", "Supabase"],
+      icon: Users,
+      link: "https://www.auxos.app/"
+    },
     {
       id: "portfolio-website",
       title: "Personal Portfolio Website",
       description:
         "Designed and developed a sleek personal portfolio using modern web technologies.",
       tech: ["SvelteKit", "Tailwind CSS", "JavaScript"],
-      icon: Code
+      icon: Code,
+      link: "https://evan-taylor.com"
     }
-    // },
-    // {
-    //   id: "database-app",
-    //   title: "Scalable Database Application",
-    //   description:
-    //     "Developed a high-performance database-driven application using PostgreSQL and Node.js.",
-    //   tech: ["PostgreSQL", "Node.js", "Express"],
-    //   icon: Database
-    // }
   ];
+
 
   onMount(() => {
     AOS.init({
