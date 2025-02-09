@@ -94,7 +94,7 @@
       <div data-aos="flip-left" data-aos-delay="400"
            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
         <div class="flex items-center gap-3 mb-4">
-          <project.icon class="w-8 h-8 text-blue-600" />
+          <svelte:component this={project.icon} class="w-8 h-8 text-blue-600" />
           <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
         </div>
         <p class="text-gray-600 dark:text-gray-300">{project.description}</p>

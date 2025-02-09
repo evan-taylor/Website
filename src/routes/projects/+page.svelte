@@ -55,7 +55,7 @@
         data-aos-delay={index * 200}
       >
         <div class="flex items-center gap-3 mb-4">
-          <project.icon class="w-8 h-8 text-blue-600" />
+          <svelte:component this={project.icon} class="w-8 h-8 text-blue-600" />
           <h3 class="text-xl font-bold text-gray-800 dark:text-white">
             <a href={project.link} target="_blank" class="hover:underline">{project.title}</a>
           </h3>
