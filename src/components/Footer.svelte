@@ -2,4 +2,6 @@
   <a href="mailto:evan@evan-taylor.com">
     <p>© {new Date().getFullYear()} Evan Taylor. All rights reserved.</p>
   </a>
+  <p>2261 Market Street #86329<br>
+  San Francisco, CA 94114</p>
 </footer>
