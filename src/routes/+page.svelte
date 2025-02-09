@@ -25,7 +25,8 @@
       title: "Personal Portfolio Website",
       description: "Designed and developed a sleek personal portfolio using modern web technologies.",
       tech: ["SvelteKit", "Tailwind CSS", "JavaScript"],
-      icon: Code
+      icon: Code,
+      link: "https://evan-taylor.com"
     }
   ];
 </script>
@@ -86,26 +87,26 @@
   </section>
 
   <!-- Projects Section -->
-  <section data-aos="fade-up" data-aos-delay="300">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Projects</h2>
-    <div class="grid gap-8 md:grid-cols-2 mt-6">
-      {#each projects as project}
-        <div data-aos="flip-left" data-aos-delay="400"
-             class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
-          <div class="flex items-center gap-3 mb-4">
-            <project.icon class="w-8 h-8 text-blue-600" />
-            <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300">{project.description}</p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            {#each project.tech as tech}
-              <span class="px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-white rounded-full text-sm">{tech}</span>
-            {/each}
-          </div>
+<section data-aos="fade-up" data-aos-delay="300">
+  <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Projects</h2>
+  <div class="grid gap-8 md:grid-cols-2 mt-6">
+    {#each projects as project}
+      <div data-aos="flip-left" data-aos-delay="400"
+           class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="flex items-center gap-3 mb-4">
+          <project.icon class="w-8 h-8 text-blue-600" />
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
         </div>
-      {/each}
-    </div>
-  </section>
+        <p class="text-gray-600 dark:text-gray-300">{project.description}</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          {#each project.tech as tech}
+            <span class="px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-white rounded-full text-sm">{tech}</span>
+          {/each}
+        </div>
+      </div>
+    {/each}
+  </div>
+</section>
 
   <!-- Contact CTA -->
   <section data-aos="fade-up" data-aos-delay="500" class="text-center">

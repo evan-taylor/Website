@@ -35,7 +35,6 @@
     }
   ];
 
-
   onMount(() => {
     AOS.init({
       duration: 800, // Animation duration
