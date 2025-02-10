@@ -15,7 +15,7 @@
     {
       id: "auxos",
       title: "Auxos",
-      description: "Creating an accountability platform that helps users achieve personal growth through goal tracking and trusted circles.",
+      description: "Creating a lightly gamified productivity and accountability platform that helps users achieve personal growth through goal tracking and trusted circles.",
       tech: ["Swift", "SwiftUI", "Figma", "Supabase"],
       icon: Users,
       link: "https://www.auxos.app/"
