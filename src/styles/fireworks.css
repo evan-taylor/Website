@@ -1,0 +1,101 @@
+/* Fireworks Animation */
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+  background: linear-gradient(125deg, #000010, #050520, #000015);
+  background-size: 400% 400%;
+  animation: gradientBg 15s ease infinite;
+}
+
+@keyframes gradientBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px;
+  opacity: 0;
+  transform: translate(0, 0);
+  animation: launch 1.5s ease-out forwards;
+}
+
+/* Launch animation for the initial rocket with CSS variables for trajectory */
+@keyframes launch {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(var(--move-x, 0), var(--move-y, -70vh));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--move-x, 0), var(--move-y, -70vh));
+    opacity: 0;
+  }
+}
+
+/* Firework particle for explosion */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  opacity: 1;
+  animation: explode 1.2s forwards;
+}
+
+/* Explosion animation for particles */
+@keyframes explode {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+
+/* Sparkle effect for twinkling stars */
+.sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+  animation: twinkle 4s infinite;
+}
+
+/* Stars are white in both themes */
+:global(.dark) .sparkle, :global(.light) .sparkle {
+  background: white;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.5); }
+}
+
+/* Create random sparkles for background stars */
+.sparkle:nth-child(1) { left: 25%; top: 15%; animation-delay: 0.1s; }
+.sparkle:nth-child(2) { left: 40%; top: 35%; animation-delay: 0.3s; }
+.sparkle:nth-child(3) { left: 70%; top: 55%; animation-delay: 0.5s; }
+.sparkle:nth-child(4) { left: 85%; top: 75%; animation-delay: 0.7s; }
+.sparkle:nth-child(5) { left: 55%; top: 45%; animation-delay: 0.9s; }
+.sparkle:nth-child(6) { left: 30%; top: 85%; animation-delay: 1.1s; }
+.sparkle:nth-child(7) { left: 60%; top: 25%; animation-delay: 1.3s; }
+.sparkle:nth-child(8) { left: 5%; top: 65%; animation-delay: 1.5s; }
+.sparkle:nth-child(9) { left: 95%; top: 5%; animation-delay: 1.7s; }
+.sparkle:nth-child(10) { left: 75%; top: 95%; animation-delay: 1.9s; } 

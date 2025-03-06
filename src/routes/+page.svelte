@@ -66,8 +66,8 @@
 
   <!-- About Me Section -->
   <section data-aos="fade-up" data-aos-delay="100">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">About Me</h2>
-    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
+    <h2 class="text-3xl font-bold text-gray-100">About Me</h2>
+    <p class="text-gray-300 leading-relaxed mt-4">
       I'm a Computer Science student at <b>Cal Poly, San Luis Obispo</b>, with a strong background in <b>software development</b> and <b>UI/UX design</b>.
       I love exploring <b>machine learning, web development, and security</b>. Currently, I'm building projects using <b>SvelteKit, React, and Java</b>.
     </p>
@@ -75,12 +75,12 @@
 
   <!-- Skills Section -->
   <section data-aos="zoom-in" data-aos-delay="200">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Skills</h2>
+    <h2 class="text-3xl font-bold text-gray-100">Skills</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
       {#each skills as skill}
-        <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow">
-          <Sparkles size={20} class="text-blue-600" />
-          <span class="text-gray-800 dark:text-white">{skill}</span>
+        <div class="flex items-center gap-3 bg-gray-800 p-4 rounded-lg shadow">
+          <Sparkles size={20} class="text-blue-400" />
+          <span class="text-white">{skill}</span>
         </div>
       {/each}
     </div>
@@ -88,19 +88,19 @@
 
   <!-- Projects Section -->
 <section data-aos="fade-up" data-aos-delay="300">
-  <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Projects</h2>
+  <h2 class="text-3xl font-bold text-gray-100">Projects</h2>
   <div class="grid gap-8 md:grid-cols-2 mt-6">
-    {#each projects as project}
-      <div data-aos="flip-left" data-aos-delay="400"
-           class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+    {#each projects as project, index}
+      <div data-aos="flip-left" data-aos-delay={400 + (index * 50)}
+           class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700 {index === 0 ? 'md:col-span-2' : ''}">
         <div class="flex items-center gap-3 mb-4">
-          <svelte:component this={project.icon} class="w-8 h-8 text-blue-600" />
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
+          <svelte:component this={project.icon} class="w-8 h-8 text-blue-400" />
+          <h3 class="text-xl font-bold text-white">{project.title}</h3>
         </div>
-        <p class="text-gray-600 dark:text-gray-300">{project.description}</p>
+        <p class="text-gray-300">{project.description}</p>
         <div class="flex flex-wrap gap-2 mt-4">
           {#each project.tech as tech}
-            <span class="px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-white rounded-full text-sm">{tech}</span>
+            <span class="px-3 py-1 bg-gray-700 text-blue-300 rounded-full text-sm">{tech}</span>
           {/each}
         </div>
       </div>
@@ -110,8 +110,8 @@
 
   <!-- Contact CTA -->
   <section data-aos="fade-up" data-aos-delay="500" class="text-center">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Let's Connect</h2>
-    <p class="text-gray-600 dark:text-gray-300 mt-4">
+    <h2 class="text-3xl font-bold text-gray-100">Let's Connect</h2>
+    <p class="text-gray-300 mt-4">
       Interested in working together? Feel free to reach out!
     </p>
     <a href="mailto:evan@evan-taylor.com"

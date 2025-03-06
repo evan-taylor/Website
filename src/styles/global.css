@@ -32,7 +32,15 @@ html {
 }
 
 body {
-  @apply min-h-screen text-[#23486A]; /* Deep blue text */
+  @apply min-h-screen;
+}
+
+.light body {
+  @apply text-[#23486A]; /* Deep blue text - only in light mode */
+}
+
+.dark body {
+  @apply text-gray-100; /* Light text for dark mode */
 }
 
 button {
