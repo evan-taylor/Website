@@ -43,8 +43,8 @@
     <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">Skills</h2>
     <ul class="list-disc pl-5 mt-2 text-gray-600 dark:text-gray-300">
       <li>Languages: Python, Java, C, Javascript, HTML, CSS</li>
-      <li>Technologies: Git, Supabase, Google Developer Dashboard, MongoDB</li>
-      <li>Frameworks: Expo, React Native, Next.js, Tailwind CSS</li>
+      <li>Technologies: Git, Supabase, PostgreSQL, Figma</li>
+      <li>Frameworks: Next.js, React, Svelte, Tailwind CSS</li>
     </ul>
   </section>
 
