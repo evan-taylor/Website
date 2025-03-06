@@ -17,7 +17,11 @@
   <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700" in:fade={{ duration: 600 }}>
     <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Evan Taylor</h2>
     <p class="text-gray-600 dark:text-gray-300">evan@evan-taylor.com ❖ 360.904.2901 ❖ San Luis Obispo, CA</p>
-    <p class="text-gray-600 dark:text-gray-300">www.linkedin.com/in/evan-l-taylor</p>
+    <p class="text-gray-600 dark:text-gray-300">
+      <a href="https://www.linkedin.com/in/evan-l-taylor/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+        www.linkedin.com/in/evan-l-taylor
+      </a>
+    </p>
   </section>
 
   <!-- Education -->
@@ -92,7 +96,7 @@
     </div>
 
     <div class="mt-4">
-      <h3 class="text-lg font-medium text-gray-800 dark:text-white">Taylored Instruction LLC <span class="text-gray-500 text-sm">January 2022 - Present</span></h3>
+      <h3 class="text-lg font-medium text-gray-800 dark:text-white">Clark County Family YMCA <span class="text-gray-500 text-sm">January 2022 - Present</span></h3>
       <p class="text-gray-600 dark:text-gray-300 italic">Aquatics Lead and Instructor Trainer, Vancouver, WA</p>
       <ul class="list-disc pl-5 mt-2 text-gray-600 dark:text-gray-300">
         <li>Supervising and training a team of 50+ lifeguards and instructors, ensuring consistent safety standards and high-quality instructional delivery.</li>
