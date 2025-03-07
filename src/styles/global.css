@@ -12,21 +12,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth Gradient Background Animation */
+/* That background that slowly shifts colors */
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Apply a large, deeper gradient */
+/* The deep space background with shifting blues and purples */
 .animate-gradient {
   background: linear-gradient(45deg, #674EA7, #3B3B98, #334E68, #1F497D, #162447);
   background-size: 300% 300%;
   animation: gradientAnimation 30s ease-in-out infinite;
 }
 
-/* Smooth Scrolling */
+/* Makes scrolling feel nice instead of jumpy */
 html {
   scroll-behavior: smooth;
 }
@@ -36,23 +36,23 @@ body {
 }
 
 .light body {
-  @apply text-[#23486A]; /* Deep blue text - only in light mode */
+  @apply text-[#23486A]; /* Deep blue text for light mode (not using it yet) */
 }
 
 .dark body {
-  @apply text-gray-100; /* Light text for dark mode */
+  @apply text-gray-100; /* Light text so it's easy to read */
 }
 
 button {
-  color: #EFB036; /* Orange accent */
+  color: #EFB036; /* That golden accent color I like */
 }
 
 button:hover {
-  background-color: #3B6790; /* Darker navy on hover */
+  background-color: #3B6790; /* A bit darker when you hover */
   color: white;
 }
 
-/* Fade-in animations */
+/* Makes things slide in instead of just appearing */
 .fade-enter {
   opacity: 0;
   transform: translateY(10px);
@@ -64,13 +64,13 @@ button:hover {
   transition: opacity 0.5s, transform 0.5s;
 }
 
-/* Better button styling */
+/* Makes buttons feel more interactive */
 button {
   cursor: pointer;
   user-select: none;
 }
 
-/* Custom links */
+/* Make links stand out better */
 a {
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Menu, X } from "lucide-svelte"; // Import icons
+  import { Menu, X } from "lucide-svelte"; // Grab the menu icons
   let isOpen = false;
 
   function toggleMenu() {
@@ -10,10 +10,10 @@
 
 <nav class="bg-transparent text-[#EFB036] relative z-50">
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <!-- Logo -->
+    <!-- My name up top -->
     <a href="/" class="text-white text-xl font-bold">Evan Taylor</a>
 
-    <!-- Desktop Menu -->
+    <!-- Links for big screens -->
     <div class="hidden md:flex space-x-6">
       <a href="/" class="text-white hover:text-gray-200 transition text-lg">Home</a>
       <a href="/projects" class="text-white hover:text-gray-200 transition text-lg">Projects</a>
@@ -21,7 +21,7 @@
       <a href="/contact" class="text-white hover:text-gray-200 transition text-lg">Contact</a>
     </div>
 
-    <!-- Mobile Menu Button -->
+    <!-- Hamburger for mobile -->
     <button class="md:hidden text-white" on:click={toggleMenu}>
       {#if isOpen}
         <X class="w-8 h-8 transition-transform duration-300 transform rotate-180" />
@@ -31,7 +31,7 @@
     </button>
   </div>
 
-  <!-- Mobile Menu (Animated) -->
+  <!-- The slide-in menu for small screens -->
   <div
     class="fixed inset-0 bg-[#23486A] text-white flex flex-col items-center justify-center space-y-6 text-lg 
                transition-all duration-300 ease-in-out transform {isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'}"

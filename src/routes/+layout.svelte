@@ -8,21 +8,25 @@
   import AOS from "aos";
   import "aos/dist/aos.css";
 
-  let theme = "dark"; // Default theme
+  let theme = "dark"; // Sticking with dark for now
 
-  // Persist theme selection & Initialize AOS
   onMount(() => {
-    // Force dark theme for now
+    // Just dark theme for now until I build out the light theme
     theme = "dark";
     localStorage.setItem("theme", "dark");
 
     AOS.init({
       duration: 800,
-      easing: "ease-in-out",
-      once: true,
+      easing: "ease-out",
+      once: false,
+      mirror: true,
+      offset: 150,
+      delay: 100,
+      anchorPlacement: 'top-bottom',
+      disableMutationObserver: false,
     });
     
-    // Initialize fireworks
+    // Fire up the background effects
     initFireworks();
   });
 
@@ -31,11 +35,10 @@
     localStorage.setItem("theme", theme);
   }
   
-  // Function to create dynamic fireworks
+  // The magic behind the scenes
   function initFireworks() {
     const container = document.querySelector('.fireworks-container');
     
-    // Create canvas element
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.style.position = 'absolute';
@@ -45,21 +48,17 @@
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
     
-    // Resize canvas to match container
     function resizeCanvas() {
       const rect = container.getBoundingClientRect();
       canvas.width = rect.width;
       canvas.height = rect.height;
     }
     
-    // Add canvas to container
     container.appendChild(canvas);
     resizeCanvas();
     
-    // Handle window resize
     window.addEventListener('resize', resizeCanvas);
     
-    // Firework class
     class Firework {
       constructor(options = {}) {
         this.options = {
@@ -115,60 +114,52 @@
         this.running = true;
       }
       
-      // Get random value from range
       randomRange(min, max) {
         return Math.random() * (max - min) + min;
       }
       
-      // Get random value from options range
       randomValue(option) {
         return this.randomRange(option.min, option.max);
       }
       
-      // Launch firework rockets
       launch(count = 1) {
         for (let i = 0; i < count; i++) {
-          // Determine launch position strategy - more evenly distributed
+          // Let's mix up the launch positions a bit
           const launchPosition = this.randomRange(0, 100);
           
           let x, y, vx, vy, explosionHeight;
           
-          // Distribute across different areas of the screen - more balanced
-          if (launchPosition < 30) {  // Reduced from 50% to 30%
-            // Bottom launch
+          // Made this more natural looking with varied launch points
+          if (launchPosition < 30) {
+            // From the bottom
             x = this.randomRange(0.1, 0.9) * this.boundaries.width;
             y = this.boundaries.height;
-            vx = this.randomRange(-1.0, 1.0); // Reduced horizontal velocity
-            vy = this.randomRange(-7, -5); // Reduced vertical velocity
-            // Target heights across entire screen
+            vx = this.randomRange(-1.0, 1.0);
+            vy = this.randomRange(-7, -5);
             explosionHeight = this.randomRange(0.1, 0.8) * this.boundaries.height;
-          } else if (launchPosition < 45) { // Increased from 15% to 20%
-            // Left side launch
+          } else if (launchPosition < 45) {
+            // Coming in from the left
             x = 0;
             y = this.randomRange(0.2, 0.8) * this.boundaries.height;
-            vx = this.randomRange(1.5, 3); // Reduced velocity
-            vy = this.randomRange(-3, -1.5); // Reduced velocity
+            vx = this.randomRange(1.5, 3);
+            vy = this.randomRange(-3, -1.5);
             explosionHeight = this.randomRange(0.1, 0.7) * this.boundaries.height;
-          } else if (launchPosition < 60) { // Increased from 15% to 20%
-            // Right side launch
+          } else if (launchPosition < 60) {
+            // Coming in from the right
             x = this.boundaries.width;
             y = this.randomRange(0.2, 0.8) * this.boundaries.height;
-            vx = this.randomRange(-3, -1.5); // Reduced velocity
-            vy = this.randomRange(-3, -1.5); // Reduced velocity
+            vx = this.randomRange(-3, -1.5);
+            vy = this.randomRange(-3, -1.5);
             explosionHeight = this.randomRange(0.1, 0.7) * this.boundaries.height;
-          } else { // Increased from 20% to 40% - much more mid-air bursts
-            // Mid-air launch (fireworks that suddenly appear and explode quickly)
-            // Spread throughout the screen
+          } else {
+            // The surprise ones that pop in mid-air
             x = this.randomRange(0.1, 0.9) * this.boundaries.width;
-            // Use the full height range for random starting positions
             y = this.randomRange(0.1, 0.8) * this.boundaries.height;
-            vx = this.randomRange(-0.3, 0.3); // Minimal velocity
-            vy = this.randomRange(-0.3, 0.3); // Minimal velocity
-            // These should explode close to where they appear
+            vx = this.randomRange(-0.3, 0.3);
+            vy = this.randomRange(-0.3, 0.3);
             explosionHeight = y - this.randomRange(5, 20);
           }
           
-          // Create new rocket
           const rocket = {
             x,
             y,
@@ -178,29 +169,25 @@
             color: `hsl(${this.randomValue(this.options.hue)}, 100%, 50%)`,
             acceleration: this.options.acceleration,
             friction: this.options.friction,
-            // Reduce gravity further for more even distribution
-            gravity: this.options.gravity * (launchPosition >= 60 ? 0.05 : 0.4), // Drastically reduced gravity
+            gravity: this.options.gravity * (launchPosition >= 60 ? 0.05 : 0.4),
             flickering: this.randomRange(0, 100) <= this.options.flickering,
             lineWidth: this.randomValue(this.options.lineWidth.trace),
             explosionColorAlpha: 1,
             explosionParticles: this.options.particles + Math.floor(this.randomRange(-10, 20)),
-            // Explosion parameters
-            explosionChance: launchPosition >= 60 ? 0.05 : 0.01, // Further reduced chance for slower timing
-            explosionTimer: launchPosition >= 60 ? this.randomRange(20, 40) : this.randomRange(40, 80), // Longer timer
+            explosionChance: launchPosition >= 60 ? 0.05 : 0.01,
+            explosionTimer: launchPosition >= 60 ? this.randomRange(20, 40) : this.randomRange(40, 80),
             targetHeight: explosionHeight,
-            // Track whether rocket has reached apex
             hasReachedApex: false,
-            initialVY: vy // Store initial velocity for later comparison
+            initialVY: vy
           };
           
           this.rockets.push(rocket);
         }
       }
       
-      // Update and draw rockets
       updateRockets() {
         this.rockets.forEach((rocket, i) => {
-          // Apply physics
+          // Physics stuff
           rocket.vx *= rocket.friction;
           rocket.vy *= rocket.friction;
           rocket.vy += rocket.gravity;
@@ -208,48 +195,39 @@
           rocket.x += rocket.vx;
           rocket.y += rocket.vy;
           
-          // Check if rocket has reached apex (vy changed from negative to positive)
           if (!rocket.hasReachedApex && rocket.initialVY < 0 && rocket.vy > -0.5) {
             rocket.hasReachedApex = true;
           }
           
-          // Decrement explosion timer
           rocket.explosionTimer--;
           
-          // Prioritize explosion parameters that will distribute explosions across the screen
+          // When should it go boom?
           const shouldExplode = 
-            // Outside boundaries check
             (rocket.x < 0 || rocket.x > this.boundaries.width) ||
-            // Height-based explosion - when rocket is near its target height
             (rocket.y <= rocket.targetHeight) ||
-            // Timer-based explosion
             (rocket.explosionTimer <= 0) ||
-            // Random chance explosion that increases after apex
             (rocket.hasReachedApex && Math.random() < rocket.explosionChance);
             
           if (shouldExplode) {
-            // Create explosion at rocket's position
             this.createExplosion(
               rocket.x, 
-              Math.min(rocket.y, this.boundaries.height * 0.9), // Cap explosion height
+              Math.min(rocket.y, this.boundaries.height * 0.9),
               rocket.color, 
               rocket.explosionParticles
             );
             
-            // Remove the rocket
             this.rockets.splice(i, 1);
           } else {
-            // Draw rocket
+            // Draw the rocket
             ctx.save();
             ctx.globalAlpha = rocket.flickering ? this.randomRange(0.5, 1) : 1;
             ctx.fillStyle = rocket.color;
             
-            // Draw rocket body
             ctx.beginPath();
             ctx.arc(rocket.x, rocket.y, rocket.size, 0, Math.PI * 2);
             ctx.fill();
             
-            // Draw rocket trail
+            // And its trail
             ctx.strokeStyle = rocket.color;
             ctx.lineWidth = rocket.lineWidth;
             ctx.beginPath();
@@ -265,9 +243,8 @@
         });
       }
       
-      // Create explosion particles
       createExplosion(x, y, color, count) {
-        // Create flash effect
+        // That bright flash when it explodes
         ctx.save();
         ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
         ctx.beginPath();
@@ -275,50 +252,44 @@
         ctx.fill();
         ctx.restore();
         
-        // Extract hue from color
         const hue = parseInt(color.match(/hsl\((\d+)/)[1]);
         
-        // Determine explosion type (variety of patterns)
+        // Mix up the explosion types for variety
         const explosionType = Math.floor(this.randomRange(0, 4));
         
-        // Create explosion particles
         for (let i = 0; i < count; i++) {
-          // Randomize particle properties
           let angle, speed, gravity;
           
-          // Different explosion patterns based on type
+          // Different explosion shapes
           switch (explosionType) {
-            case 0: // Standard circular
+            case 0: // Plain circle
               angle = this.randomRange(0, Math.PI * 2);
-              speed = this.randomRange(0.5, 3); // Further reduced speed
-              gravity = this.options.gravity * 0.15; // Further reduced gravity
+              speed = this.randomRange(0.5, 3);
+              gravity = this.options.gravity * 0.15;
               break;
-            case 1: // Chrysanthemum (more structured)
+            case 1: // The flower-like one
               angle = (i / count) * Math.PI * 2;
-              speed = this.randomRange(1, 2.5) + (i % 3) * 0.3; // Further reduced speed
-              gravity = this.options.gravity * 0.08; // Further reduced gravity
+              speed = this.randomRange(1, 2.5) + (i % 3) * 0.3;
+              gravity = this.options.gravity * 0.08;
               break;
-            case 2: // Willow (less gravity)
+            case 2: // The one with the long trails
               angle = this.randomRange(0, Math.PI * 2);
-              speed = this.randomRange(0.4, 2); // Further reduced speed
-              gravity = this.options.gravity * 0.01; // Extremely low gravity for very long hang time
+              speed = this.randomRange(0.4, 2);
+              gravity = this.options.gravity * 0.01;
               break;
-            case 3: // Palm (mostly upwards)
+            case 3: // The fan-shaped one
               angle = this.randomRange(Math.PI * 0.7, Math.PI * 2.3);
-              speed = this.randomRange(1, 3); // Further reduced speed
-              gravity = this.options.gravity * 0.05; // Further reduced gravity
+              speed = this.randomRange(1, 3);
+              gravity = this.options.gravity * 0.05;
               break;
           }
           
           const size = this.randomValue(this.options.lineWidth.explosion);
-          // Even longer particle life
-          const life = this.randomRange(80, 150); // Much longer life
+          const life = this.randomRange(80, 150);
           
-          // Randomize color variations
           const hueVariation = this.randomRange(-20, 20);
           const brightness = this.randomValue(this.options.brightness);
           
-          // Create particle object
           const particle = {
             x,
             y,
@@ -327,7 +298,7 @@
             size,
             color: `hsl(${hue + hueVariation}, 100%, ${brightness}%)`,
             alpha: 1,
-            decay: this.randomValue(this.options.decay) * 0.25, // Drastically slower decay rate
+            decay: this.randomValue(this.options.decay) * 0.25,
             gravity,
             life,
             maxLife: life
@@ -337,10 +308,9 @@
         }
       }
       
-      // Update and draw particles
       updateParticles() {
         this.particles.forEach((particle, i) => {
-          // Apply physics
+          // More physics
           particle.vx *= this.options.friction;
           particle.vy *= this.options.friction;
           particle.vy += particle.gravity;
@@ -348,24 +318,21 @@
           particle.x += particle.vx;
           particle.y += particle.vy;
           
-          // Fade out particle more gradually
-          // First 70% of life - barely fade
+          // Slow fade at first, then faster at the end
           if (particle.life > particle.maxLife * 0.3) {
             particle.alpha -= particle.decay * 0.5;
           } else {
-            // Last 30% of life - fade faster
             particle.alpha -= particle.decay * 1.5;
           }
           
           particle.life--;
           
-          // Remove dead particles
           if (particle.alpha <= 0 || particle.life <= 0) {
             this.particles.splice(i, 1);
             return;
           }
           
-          // Draw particle
+          // Draw the particle
           ctx.save();
           ctx.globalAlpha = particle.alpha;
           ctx.fillStyle = particle.color;
@@ -378,79 +345,69 @@
         });
       }
       
-      // Clear canvas
       clear() {
-        // Complete clearing with higher opacity to prevent gray traces
+        // Clean up with a fade effect
         ctx.globalCompositeOperation = 'destination-out';
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'; // Increased opacity for better clearing
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalCompositeOperation = 'lighter';
       }
       
-      // Main render loop
       render() {
         if (!this.running) return;
         
-        // Clear canvas with fade effect
         this.clear();
-        
-        // Update and draw elements
         this.updateRockets();
         this.updateParticles();
         
-        // Randomly launch new rockets based on intensity
+        // Launch new ones periodically
         this.tick++;
-        if (this.tick % 18 === 0 && Math.random() * 100 < this.options.intensity) { // Changed from 25 to 18 for more frequent launches
-          // Occasionally launch direct mid-air bursts to ensure coverage of upper areas
+        if (this.tick % 18 === 0 && Math.random() * 100 < this.options.intensity) {
           if (Math.random() < 0.3) {
-            // Create direct mid-air firework without rocket
+            // Those cool ones that appear out of nowhere
             const x = this.randomRange(0.1, 0.9) * this.boundaries.width;
-            const y = this.randomRange(0.1, 0.6) * this.boundaries.height; // Focus on upper half
+            const y = this.randomRange(0.1, 0.6) * this.boundaries.height;
             const count = Math.floor(this.randomRange(40, 100));
             const hue = this.randomValue(this.options.hue);
             const color = `hsl(${hue}, 100%, 50%)`;
             
-            // Create explosion directly
             this.createExplosion(x, y, color, count);
           } else {
-            // Normal launches
-            const count = Math.random() < 0.1 ? 2 : 1; // Slightly increased multi-burst probability
+            // Regular launches
+            const count = Math.random() < 0.1 ? 2 : 1;
             this.launch(count);
           }
         }
         
-        // Request next frame
         requestAnimationFrame(() => this.render());
       }
       
-      // Start fireworks
       start() {
         this.running = true;
         this.render();
         
-        // Initial rockets with moderate delays
-        for (let i = 0; i < 3; i++) { // Increased from 2 to 3 initial rockets
+        // Kick off with a few initial fireworks
+        for (let i = 0; i < 3; i++) {
           setTimeout(() => {
             this.launch(1);
-          }, i * 1500); // Reduced delay between initial rockets from 2000ms to 1500ms
+          }, i * 1500);
         }
       }
       
-      // Stop fireworks
       stop() {
         this.running = false;
       }
     }
     
-    // Create and start fireworks
+    // Set up with my preferred settings
     const fireworks = new Firework({
-      intensity: 12,  // Increased from 8 to 12 for more frequent fireworks
-      friction: 0.99, // Even higher value = less drag (particles maintain momentum longer)
-      gravity: 0.35,   // Reduced gravity for slower movement
-      particles: 60,  // Fewer particles for cleaner look
-      flickering: 50, // Chance of rocket flickering
-      opacity: 0.2,  // Increased opacity for better clearing of trails
-      lineWidth: {    // Line width for traces and particles
+      intensity: 12,
+      friction: 0.99,
+      gravity: 0.35,
+      particles: 60,
+      flickering: 50,
+      opacity: 0.2,
+      lineWidth: {
         explosion: {
           min: 1,
           max: 3
@@ -460,19 +417,19 @@
           max: 3
         }
       },
-      hue: {          // Color range
+      hue: {
         min: 0,
         max: 360
       },
-      rocketsPoint: { // Horizontal start position (percentage)
+      rocketsPoint: {
         min: 20,
         max: 80
       },
-      decay: {        // Particle fade speed
-        min: 0.0015,  // Slightly faster decay to help with cleanup
+      decay: {
+        min: 0.0015,
         max: 0.004
       },
-      brightness: {   // Increased brightness
+      brightness: {
         min: 60,
         max: 90
       }
@@ -480,7 +437,7 @@
     
     fireworks.start();
     
-    // Return cleanup function
+    // Clean up when needed
     return () => {
       fireworks.stop();
       window.removeEventListener('resize', resizeCanvas);
