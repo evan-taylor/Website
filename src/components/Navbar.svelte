@@ -42,6 +42,6 @@
     <a href="/" class="hover:text-gray-200 transition" on:click={toggleMenu}>Home</a>
     <a href="/projects" class="hover:text-gray-200 transition" on:click={toggleMenu}>Projects</a>
     <a href="/resume" class="hover:text-gray-200 transition" on:click={toggleMenu}>Resume</a>
-    <a href="/contact" class="hover:text-gray-200 transition" on:click={toggleMenu}>Contact</a>
+    <a href="/contact" class="hover:text-gray-200 transition" on:click={toggleMenu}>Contact & Meet</a>
   </div>
 </nav>

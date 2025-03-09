@@ -155,9 +155,15 @@
     <p class="text-gray-300 mt-4">
       Interested in working together? Feel free to reach out!
     </p>
-    <a href="mailto:evan@evan-taylor.com"
-      class="mt-6 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition">
-      Contact Me
-    </a>
+    <div class="mt-6 flex flex-wrap justify-center gap-4">
+      <a href="/contact"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition">
+        Get In Touch
+      </a>
+      <a href="/contact?tab=schedule"
+        class="inline-block px-6 py-3 bg-gray-700 text-white rounded-lg text-lg font-medium hover:bg-gray-600 transition">
+        Schedule a Meeting
+      </a>
+    </div>
   </section>
 </main>
