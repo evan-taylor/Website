@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { page } from "$app/stores";
-  import { Mail, MapPin, Github, Linkedin, Calendar, Clock, Video, Coffee, MessageSquare } from "lucide-svelte";
+  import { Mail, MapPin, Github, Linkedin, Calendar, Clock, Video, Coffee, MessageSquare, Twitter } from "lucide-svelte";
 
   let formSubmitted = false;
   let formError = false;
@@ -74,6 +74,9 @@
       </a>
       <a href="https://www.linkedin.com/in/evan-l-taylor/" target="_blank" class="hover:underline flex items-center gap-2 text-white">
         <Linkedin size={16} /> LinkedIn
+      </a>
+      <a href="https://x.com/evantaylor1104" target="_blank" class="hover:underline flex items-center gap-2 text-white">
+        <Twitter size={16} /> Twitter
       </a>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <script>
-  import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles, Activity, Users } from "lucide-svelte";
+  import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles, Activity, Users, Twitter } from "lucide-svelte";
   
   let skills = ["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"];
 
@@ -56,6 +56,9 @@
       </a>
       <a href="https://www.linkedin.com/in/evan-l-taylor/" target="_blank" class="hover:underline flex items-center gap-2">
         <Linkedin size={16} /> LinkedIn
+      </a>
+      <a href="https://x.com/evantaylor1104" target="_blank" class="hover:underline flex items-center gap-2">
+        <Twitter size={16} /> Twitter
       </a>
     </div>
   </div>
