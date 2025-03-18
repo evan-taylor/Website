@@ -3,9 +3,18 @@
   import AOS from "aos";
   import "aos/dist/aos.css"; // Import AOS styles
 
-  import { Code, Activity, Users } from "lucide-svelte";
+  import { Code, Activity, Users, Calendar } from "lucide-svelte";
 
   const projects = [
+    {
+      id: "clendr",
+      title: "Clendr",
+      description:
+        "An innovative AI-powered calendar platform that transforms traditional scheduling into an intelligent time management system. Helps busy professionals optimize their day with smart time blocks, contextual suggestions, and automated scheduling that adapts to your priorities.",
+      tech: ["Next.js", "Tailwind CSS", "OpenAI API", "Supabase"],
+      icon: Calendar,
+      link: "https://clendr.com/"
+    },
     {
       id: "swimtrackr",
       title: "SwimTrackr",

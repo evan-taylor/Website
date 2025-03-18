@@ -1,9 +1,17 @@
 <script>
-  import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles, Activity, Users, Twitter } from "lucide-svelte";
+  import { Mail, MapPin, Github, Linkedin, Code, Terminal, Sparkles, Activity, Users, Twitter, Calendar } from "lucide-svelte";
   
   let skills = ["JavaScript", "React", "SvelteKit", "Tailwind CSS", "Python", "Machine Learning"];
 
   const projects = [
+    {
+      id: "clendr",
+      title: "Clendr",
+      description: "An innovative AI-powered calendar platform that transforms traditional scheduling into an intelligent time management system for busy professionals.",
+      tech: ["Next.js", "Tailwind CSS", "OpenAI API", "Supabase"],
+      icon: Calendar,
+      link: "https://clendr.com/"
+    },
     {
       id: "swimtrackr",
       title: "SwimTrackr",
@@ -128,7 +136,7 @@
           data-aos-anchor-placement="center-bottom"
           data-aos-offset="200"
           data-aos-mirror="true"
-          class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700 flex flex-col h-full {index === 0 ? 'md:col-span-2' : ''}"
+          class="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700 flex flex-col h-full"
         >
           <div class="flex items-center gap-3 mb-4">
             <svelte:component this={project.icon} class="w-8 h-8 text-blue-400" />
